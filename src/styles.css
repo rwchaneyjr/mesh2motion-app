@@ -506,7 +506,7 @@ option {
 #tool-panel {
     position: fixed;
     height: fit-content;
-    width: clamp(22rem, 26vw, 30rem);
+    width: clamp(25rem, 30vw, 36rem);
 
     background: var(--bg-tertiary);
     background: radial-gradient(circle, var(--bg-alternate) 0%, var(--bg-primary) 100%);
@@ -515,7 +515,7 @@ option {
     top: var(--navigation-height);
     right: 0;
     border-left: 1px solid var(--bg-tertiary);
-    padding: 0.5rem;
+    padding: 0.9rem;
     height: 100%;
     overflow-y: auto;
     overflow-x: hidden;
@@ -526,12 +526,19 @@ option {
 #tool-panel button,
 #tool-panel select,
 #tool-panel input {
-    font-size: 1rem;
+    font-size: 1.15rem;
 }
 
 #tool-panel button,
 #tool-panel select {
-    min-height: 2.25rem;
+    min-height: 2.8rem;
+}
+
+#tool-panel .step-instructions,
+#tool-panel p,
+#tool-panel small {
+    font-size: 1.05rem;
+    line-height: 1.4;
 }
 
 @media (max-width: 700px) {

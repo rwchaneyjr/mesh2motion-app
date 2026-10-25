@@ -2,6 +2,37 @@ h1 {
     font-size: 1.7rem;
 }
 
+/* Keep both mapping panels readable when the browser window is narrow. */
+.bone-mapping-layout {
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+
+.bone-mapping-layout .bone-map-section {
+    flex: 1 1 16rem;
+    min-width: 0;
+    max-width: 100%;
+}
+
+.bone-mapping-layout .bone-map-section input,
+.bone-mapping-layout .bone-map-section select,
+.bone-mapping-layout .bone-map-section button,
+.bone-mapping-layout .bone-map-section label {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+@media (max-width: 1100px) {
+    .bone-mapping-layout {
+        flex-direction: column !important;
+    }
+
+    .bone-mapping-layout > :not(.bone-map-section) {
+        align-self: center;
+        transform: rotate(90deg);
+    }
+}
+
 .bone-map-section {
     display: inline-flex; 
     flex-direction: column;
