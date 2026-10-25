@@ -49,6 +49,7 @@ export class Mesh2MotionEngine {
   public is_transform_controls_dragging: boolean = false
   public readonly transform_controls_hover_distance: number = 0.05 // distance to hover over bones to select them
   public is_model_gizmo_active: boolean = false
+  public is_skeleton_gizmo_active: boolean = false
   public readonly mesh_drag_bone_placement: MeshDragBonePlacement
 
   public view_helper: CustomViewHelper | undefined // mini 3d view to help orient orthographic views
@@ -250,7 +251,7 @@ export class Mesh2MotionEngine {
   }
 
   public handle_transform_controls_moving (): void {
-    if (this.is_model_gizmo_active) { return }
+    if (this.is_model_gizmo_active || this.is_skeleton_gizmo_active) { return }
 
     const selected_bone: Bone = this.transform_controls.object as Bone
 
@@ -272,6 +273,17 @@ export class Mesh2MotionEngine {
   public enable_model_gizmo (): void {
     this.is_model_gizmo_active = true
     this.transform_controls.attach(this.load_model_step.model_meshes())
+    this.transform_controls.setMode('translate')
+    this.transform_controls.enabled = true
+  }
+
+  public enable_skeleton_gizmo (): void {
+    const armature = this.edit_skeleton_step.armature()
+    if (armature === undefined) return
+
+    this.is_skeleton_gizmo_active = true
+    this.is_model_gizmo_active = false
+    this.transform_controls.attach(armature)
     this.transform_controls.setMode('translate')
     this.transform_controls.enabled = true
   }
