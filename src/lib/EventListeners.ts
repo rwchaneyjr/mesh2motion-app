@@ -232,16 +232,17 @@ export class EventListeners {
     })
 
     // rotate model after loading it in to orient it correctly
+    const rotation_step = (): number => Number(this.bootstrap.ui.dom_model_rotation_step?.value ?? 15)
     this.bootstrap.ui.dom_rotate_model_x_button?.addEventListener('click', () => {
-      ModelCleanupUtility.rotate_model_geometry(this.bootstrap.load_model_step.model_meshes(), 'x', 90)
+      ModelCleanupUtility.rotate_model_geometry(this.bootstrap.load_model_step.model_meshes(), 'x', rotation_step())
     })
 
     this.bootstrap.ui.dom_rotate_model_y_button?.addEventListener('click', () => {
-      ModelCleanupUtility.rotate_model_geometry(this.bootstrap.load_model_step.model_meshes(), 'y', 90)
+      ModelCleanupUtility.rotate_model_geometry(this.bootstrap.load_model_step.model_meshes(), 'y', rotation_step())
     })
 
     this.bootstrap.ui.dom_rotate_model_z_button?.addEventListener('click', () => {
-      ModelCleanupUtility.rotate_model_geometry(this.bootstrap.load_model_step.model_meshes(), 'z', 90)
+      ModelCleanupUtility.rotate_model_geometry(this.bootstrap.load_model_step.model_meshes(), 'z', rotation_step())
     })
 
     // show a breakdown of what was found in the imported file

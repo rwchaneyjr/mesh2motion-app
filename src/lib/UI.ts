@@ -19,6 +19,7 @@ export class UI {
   dom_rotate_model_x_button: HTMLButtonElement | null = null
   dom_rotate_model_y_button: HTMLButtonElement | null = null
   dom_rotate_model_z_button: HTMLButtonElement | null = null
+  dom_model_rotation_step: HTMLSelectElement | null = null
   dom_reset_model_position_button: HTMLButtonElement | null = null
   dom_auto_align_model_button: HTMLButtonElement | null = null
   dom_scale_model_input: HTMLInputElement | null = null
@@ -162,6 +163,7 @@ export class UI {
     this.dom_rotate_model_x_button = document.querySelector('#rotate-model-x-button')
     this.dom_rotate_model_y_button = document.querySelector('#rotate-model-y-button')
     this.dom_rotate_model_z_button = document.querySelector('#rotate-model-z-button')
+    this.dom_model_rotation_step = document.querySelector('#model-rotation-step')
     this.dom_reset_model_position_button = document.querySelector('#reset-model-position-button')
     this.dom_auto_align_model_button = document.querySelector('#auto-align-model-button')
     this.dom_scale_model_input = document.querySelector('#scale-model-input')
