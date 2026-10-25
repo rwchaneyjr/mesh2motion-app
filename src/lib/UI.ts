@@ -22,6 +22,7 @@ export class UI {
   dom_model_rotation_step: HTMLSelectElement | null = null
   dom_reset_model_position_button: HTMLButtonElement | null = null
   dom_auto_align_model_button: HTMLButtonElement | null = null
+  dom_auto_align_skeleton_button: HTMLButtonElement | null = null
   dom_scale_model_input: HTMLInputElement | null = null
   dom_scale_model_percentage_display: HTMLElement | null = null
   dom_reset_model_scale_button: HTMLButtonElement | null = null
@@ -166,6 +167,7 @@ export class UI {
     this.dom_model_rotation_step = document.querySelector('#model-rotation-step')
     this.dom_reset_model_position_button = document.querySelector('#reset-model-position-button')
     this.dom_auto_align_model_button = document.querySelector('#auto-align-model-button')
+    this.dom_auto_align_skeleton_button = document.querySelector('#auto-align-skeleton-button')
     this.dom_scale_model_input = document.querySelector('#scale-model-input')
     this.dom_scale_model_percentage_display = document.querySelector('#scale-model-percentage-display')
     this.dom_reset_model_scale_button = document.querySelector('#reset-model-scale-button')

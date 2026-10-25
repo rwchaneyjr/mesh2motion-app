@@ -682,6 +682,26 @@ export class StepEditSkeleton extends EventTarget {
     return this.edited_armature
   }
 
+  /** Move the complete editable armature upward until its lowest bone reaches the floor. */
+  public align_skeleton_to_floor (): void {
+    if (this.threejs_skeleton?.bones === undefined || this.threejs_skeleton.bones.length === 0) return
+
+    this.edited_armature.updateMatrixWorld(true)
+    let lowest_y = Infinity
+    const world_position = new Vector3()
+
+    this.threejs_skeleton.bones.forEach((bone: Bone) => {
+      bone.getWorldPosition(world_position)
+      lowest_y = Math.min(lowest_y, world_position.y)
+    })
+
+    if (!Number.isFinite(lowest_y) || lowest_y >= 0) return
+
+    this.edited_armature.position.y += -lowest_y
+    this.edited_armature.updateMatrixWorld(true)
+    this.threejs_skeleton.bones[0].updateWorldMatrix(true, true)
+  }
+
   public skeleton (): Skeleton {
     return this.threejs_skeleton
   }

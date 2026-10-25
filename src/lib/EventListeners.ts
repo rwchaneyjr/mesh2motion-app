@@ -283,6 +283,10 @@ export class EventListeners {
       }
     })
 
+    this.bootstrap.ui.dom_auto_align_skeleton_button?.addEventListener('click', () => {
+      this.bootstrap.edit_skeleton_step.align_skeleton_to_floor()
+    })
+
     this.bootstrap.ui.dom_show_skeleton_checkbox?.addEventListener('click', (event: MouseEvent) => {
       if (this.bootstrap.skeleton_helper !== undefined) {
         this.bootstrap.skeleton_helper.visible = event.target.checked
