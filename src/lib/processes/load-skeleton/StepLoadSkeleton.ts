@@ -104,7 +104,7 @@ export class StepLoadSkeleton extends EventTarget {
     const skeleton_selection = this.ui.dom_skeleton_drop_type.options
     const skeleton_file: string = skeleton_selection[skeleton_selection.selectedIndex].value
 
-    if (skeleton_file === 'select-skeleton') return SkeletonType.None
+    if (skeleton_file === 'select-skeleton' || skeleton_file === SkeletonType.None) return SkeletonType.None
 
     const config = RigConfig.by_key(skeleton_file)
     if (config === undefined) {

@@ -1,4 +1,5 @@
 import { RigConfig } from './RigConfig.ts'
+import { SkeletonType } from './enums/SkeletonType.ts'
 import {
   BoneNamingStructure,
   ExportContents,
@@ -483,6 +484,10 @@ export class DOMUtilities {
       placeholder.textContent = 'Select a skeleton'
       select.appendChild(placeholder)
     }
+    const none_option = document.createElement('option')
+    none_option.value = SkeletonType.None
+    none_option.textContent = 'None (mesh only)'
+    select.appendChild(none_option)
     for (const rig of RigConfig.all) {
       const option = document.createElement('option')
       option.value = rig.skeleton_type
