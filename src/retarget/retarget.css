@@ -2,16 +2,59 @@ h1 {
     font-size: 1.7rem;
 }
 
+/* Compact retargeting workspace: keep the complete workflow visible together. */
+#tool-panel:has(#bone-mapping-step) {
+    padding: 0.55rem;
+}
+
+#tool-panel:has(#bone-mapping-step) h1 {
+    font-size: 1.35rem;
+    margin: 0.25rem 0 0.5rem;
+}
+
+#tool-panel:has(#bone-mapping-step) .bone-map-heading {
+    padding: 0.65rem;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+#tool-panel:has(#bone-mapping-step) .bone-map-content {
+    padding: 0.65rem;
+}
+
+#tool-panel:has(#bone-mapping-step) .bone-item {
+    padding: 0.3rem 0.45rem;
+    font-size: 0.9rem;
+}
+
+#tool-panel:has(#bone-mapping-step) #source-bones-list,
+#tool-panel:has(#bone-mapping-step) #target-bones-list {
+    height: clamp(9rem, 25dvh, 15rem);
+}
+
+#tool-panel:has(#bone-mapping-step) #bone-mapping-step > div:last-child {
+    padding: 0.45rem !important;
+}
+
 /* Keep both mapping panels readable when the browser window is narrow. */
 .bone-mapping-layout {
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: stretch;
 }
 
 .bone-mapping-layout .bone-map-section {
-    flex: 1 1 16rem;
+    flex: 1 1 0;
     min-width: 0;
     max-width: 100%;
+}
+
+.bone-mapping-layout > :not(.bone-map-section) {
+    flex: 0 0 2rem;
+}
+
+.bone-mapping-layout #source-bones-list,
+.bone-mapping-layout #target-bones-list {
+    height: clamp(12rem, 34dvh, 22rem);
 }
 
 .bone-mapping-layout .bone-map-section input,
@@ -23,6 +66,12 @@ h1 {
 }
 
 @media (max-width: 1100px) {
+    #tool-panel:has(#bone-mapping-step) {
+        width: min(100vw, 42rem);
+    }
+}
+
+@media (max-width: 760px) {
     .bone-mapping-layout {
         flex-direction: column !important;
     }

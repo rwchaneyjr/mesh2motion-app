@@ -247,8 +247,9 @@ export class Utility {
   }
 
   static calculate_bone_base_name (bone_name: string): string {
-    // remove if bone name part if they have suffix
-    let normalized_bone_name: string = bone_name.toLowerCase().replace(/(_r|_l|_right|_left)$/, '')
+    // Remove common left/right suffixes used by Blender and other exporters.
+    // This includes names such as Leg_Front.L, Leg_Front_R, and Leg_Front-right.
+    let normalized_bone_name: string = bone_name.toLowerCase().replace(/(?:[._-](?:r|l|right|left)|_(?:r|l|right|left))$/, '')
 
     // remove if the bone name part if they have prefix
     normalized_bone_name = normalized_bone_name.replace(/^(r_|l_|right_|left_)/, '')
