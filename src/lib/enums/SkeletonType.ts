@@ -6,6 +6,8 @@ export enum SkeletonType {
   Dragon = 'dragon',
   Kaiju = 'kaiju',
   Spider = 'spider',
+  Behemoth6Leg = 'behemoth-6-leg',
+  Behemoth8Leg = 'behemoth-8-leg',
   Snake = 'snake',
   Fish = 'fish',
   Horse = 'horse',
