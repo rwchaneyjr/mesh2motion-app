@@ -192,6 +192,10 @@ export class StepLoadModel extends EventTarget {
     this.final_mesh_data.position.set(0, 0, 0)
   }
 
+  public set_model_scale (scale: number): void {
+    this.final_mesh_data.scale.set(scale, scale, scale)
+  }
+
   /**
    *
    * @param preserve

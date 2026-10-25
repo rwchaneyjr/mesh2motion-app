@@ -47,7 +47,7 @@ export class Mesh2MotionEngine {
 
   public readonly transform_controls: CustomTransformControls = new CustomTransformControls(this.camera, this.renderer.domElement)
   public is_transform_controls_dragging: boolean = false
-  public readonly transform_controls_hover_distance: number = 0.02 // distance to hover over bones to select them
+  public readonly transform_controls_hover_distance: number = 0.05 // distance to hover over bones to select them
   public is_model_gizmo_active: boolean = false
   public readonly mesh_drag_bone_placement: MeshDragBonePlacement
 

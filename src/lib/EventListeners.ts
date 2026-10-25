@@ -254,6 +254,20 @@ export class EventListeners {
       this.bootstrap.load_model_step.reset_model_position()
     })
 
+    this.bootstrap.ui.dom_scale_model_input?.addEventListener('input', (event: Event) => {
+      const scale = Number((event.target as HTMLInputElement).value)
+      this.bootstrap.load_model_step.set_model_scale(scale)
+      if (this.bootstrap.ui.dom_scale_model_percentage_display !== null) {
+        this.bootstrap.ui.dom_scale_model_percentage_display.textContent = `${Math.round(scale * 100)}%`
+      }
+    })
+
+    this.bootstrap.ui.dom_reset_model_scale_button?.addEventListener('click', () => {
+      this.bootstrap.load_model_step.set_model_scale(1)
+      if (this.bootstrap.ui.dom_scale_model_input !== null) this.bootstrap.ui.dom_scale_model_input.value = '1'
+      if (this.bootstrap.ui.dom_scale_model_percentage_display !== null) this.bootstrap.ui.dom_scale_model_percentage_display.textContent = '100%'
+    })
+
     // Auto-align model to floor
     this.bootstrap.ui.dom_auto_align_model_button?.addEventListener('click', () => {
       // move the mesh geometry data to the floor

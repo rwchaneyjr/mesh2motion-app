@@ -657,7 +657,18 @@ export class StepEditSkeleton extends EventTarget {
 
   private create_threejs_skeleton_object (): Skeleton {
     // create skeleton and helper to visualize
-    this.threejs_skeleton = Generators.create_skeleton(this.edited_armature.children[0])
+    let root_bone: Object3D | undefined
+    this.edited_armature.traverse((object: Object3D) => {
+      if (root_bone === undefined && object.type === 'Bone') {
+        root_bone = object
+      }
+    })
+
+    if (root_bone === undefined) {
+      throw new Error('The selected skeleton does not contain a usable root bone.')
+    }
+
+    this.threejs_skeleton = Generators.create_skeleton(root_bone)
     this.threejs_skeleton.name = 'Editing Skeleton'
 
     // update the world matrix for the skeleton
