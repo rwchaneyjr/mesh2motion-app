@@ -281,6 +281,9 @@ export class EventListeners {
         ModelCleanupUtility.translate_model_vertices(mesh_data, 0, py, 0)
         mesh_data.position.setY(0)
       }
+
+      // Keep an already-loaded editable skeleton on the same floor plane.
+      this.bootstrap.edit_skeleton_step.align_skeleton_to_floor()
     })
 
     this.bootstrap.ui.dom_auto_align_skeleton_button?.addEventListener('click', () => {

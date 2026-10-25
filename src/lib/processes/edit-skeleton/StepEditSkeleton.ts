@@ -695,9 +695,11 @@ export class StepEditSkeleton extends EventTarget {
       lowest_y = Math.min(lowest_y, world_position.y)
     })
 
-    if (!Number.isFinite(lowest_y) || lowest_y >= 0) return
+    if (!Number.isFinite(lowest_y)) return
 
-    this.edited_armature.position.y += -lowest_y
+    // Keep the lowest joint just above the floor so the rig remains visible.
+    const floor_clearance = 0.05
+    this.edited_armature.position.y += floor_clearance - lowest_y
     this.edited_armature.updateMatrixWorld(true)
     this.threejs_skeleton.bones[0].updateWorldMatrix(true, true)
   }
