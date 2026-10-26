@@ -503,6 +503,21 @@ option {
     row-gap: 0.4rem;
 }
 
+#skeleton-step-actions {
+    display: none;
+    width: 100%;
+    box-sizing: border-box;
+    padding-bottom: 0.75rem;
+}
+
+#skeleton-step-actions > div:last-child {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.75rem;
+}
+
 #tool-panel {
     position: fixed;
     height: fit-content;
