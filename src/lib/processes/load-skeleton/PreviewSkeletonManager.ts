@@ -8,6 +8,10 @@ import { CustomSkeletonHelper } from '../../CustomSkeletonHelper'
 
 const skeleton_group_name: string = 'preview_skeleton_group'
 
+export function get_preview_skeleton_group (root: Scene): Group | undefined {
+  return root.getObjectByName(skeleton_group_name) as Group | undefined
+}
+
 // need a function that will add a preview skeleton to the scene
 // this will remove any existing preview skeleton first
 // and then add the new one based on the selected type

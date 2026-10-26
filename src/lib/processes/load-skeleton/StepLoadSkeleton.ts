@@ -6,7 +6,7 @@ import { RigConfig } from '../../RigConfig.ts'
 import { DOMUtilities } from '../../DOMUtilities.ts'
 import type GLTFResult from './interfaces/GLTFResult.ts'
 import { add_origin_markers, remove_origin_markers } from './OriginMarkerManager'
-import { add_preview_skeleton, remove_preview_skeleton } from './PreviewSkeletonManager.ts'
+import { add_preview_skeleton, get_preview_skeleton_group, remove_preview_skeleton } from './PreviewSkeletonManager.ts'
 import { HandHelper } from './HandHelper.ts'
 
 // Note: EventTarget is a built-ininterface and do not need to import it
@@ -97,6 +97,10 @@ export class StepLoadSkeleton extends EventTarget {
   public dispose (): void {
     remove_origin_markers(this._main_scene)
     remove_preview_skeleton(this._main_scene)
+  }
+
+  public preview_skeleton_group (): Object3D | undefined {
+    return get_preview_skeleton_group(this._main_scene)
   }
 
   private skeleton_file_path (): SkeletonType {

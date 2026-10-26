@@ -17,13 +17,17 @@ export class UI {
 
   // load skeleton UI
   dom_rotate_model_x_button: HTMLButtonElement | null = null
+  dom_rotate_model_x_negative_button: HTMLButtonElement | null = null
   dom_rotate_model_y_button: HTMLButtonElement | null = null
+  dom_rotate_model_y_negative_button: HTMLButtonElement | null = null
   dom_rotate_model_z_button: HTMLButtonElement | null = null
+  dom_rotate_model_z_negative_button: HTMLButtonElement | null = null
   dom_model_rotation_step: HTMLSelectElement | null = null
   dom_reset_model_position_button: HTMLButtonElement | null = null
   dom_auto_align_model_button: HTMLButtonElement | null = null
   dom_auto_align_skeleton_button: HTMLButtonElement | null = null
   dom_move_whole_skeleton_button: HTMLButtonElement | null = null
+  dom_move_preview_skeleton_button: HTMLButtonElement | null = null
   dom_scale_model_input: HTMLInputElement | null = null
   dom_scale_model_percentage_display: HTMLElement | null = null
   dom_reset_model_scale_button: HTMLButtonElement | null = null
@@ -163,13 +167,17 @@ export class UI {
 
     // UI controls with load skeleton step
     this.dom_rotate_model_x_button = document.querySelector('#rotate-model-x-button')
+    this.dom_rotate_model_x_negative_button = document.querySelector('#rotate-model-x-negative-button')
     this.dom_rotate_model_y_button = document.querySelector('#rotate-model-y-button')
+    this.dom_rotate_model_y_negative_button = document.querySelector('#rotate-model-y-negative-button')
     this.dom_rotate_model_z_button = document.querySelector('#rotate-model-z-button')
+    this.dom_rotate_model_z_negative_button = document.querySelector('#rotate-model-z-negative-button')
     this.dom_model_rotation_step = document.querySelector('#model-rotation-step')
     this.dom_reset_model_position_button = document.querySelector('#reset-model-position-button')
     this.dom_auto_align_model_button = document.querySelector('#auto-align-model-button')
     this.dom_auto_align_skeleton_button = document.querySelector('#auto-align-skeleton-button')
     this.dom_move_whole_skeleton_button = document.querySelector('#move-whole-skeleton-button')
+    this.dom_move_preview_skeleton_button = document.querySelector('#move-preview-skeleton-button')
     this.dom_scale_model_input = document.querySelector('#scale-model-input')
     this.dom_scale_model_percentage_display = document.querySelector('#scale-model-percentage-display')
     this.dom_reset_model_scale_button = document.querySelector('#reset-model-scale-button')

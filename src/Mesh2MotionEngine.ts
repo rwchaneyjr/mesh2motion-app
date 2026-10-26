@@ -1,5 +1,6 @@
 import * as THREE from 'three'
 import { CustomTransformControls } from './lib/components/CustomTransformControls.ts'
+import { Box3 } from 'three'
 import type { CustomViewHelper } from './lib/CustomViewHelper.ts'
 
 import tippy from 'tippy.js'
@@ -286,6 +287,30 @@ export class Mesh2MotionEngine {
     this.transform_controls.attach(armature)
     this.transform_controls.setMode('translate')
     this.transform_controls.enabled = true
+  }
+
+  public enable_preview_skeleton_gizmo (): void {
+    const preview_group = this.load_skeleton_step.preview_skeleton_group()
+    if (preview_group === undefined) {
+      console.warn('Preview skeleton is not loaded yet')
+      return
+    }
+
+    this.is_skeleton_gizmo_active = true
+    this.is_model_gizmo_active = false
+    this.transform_controls.attach(preview_group)
+    this.transform_controls.setMode('translate')
+    this.transform_controls.enabled = true
+  }
+
+  public align_preview_skeleton_to_floor (): void {
+    const preview_group = this.load_skeleton_step.preview_skeleton_group()
+    if (preview_group === undefined) return
+
+    const bounds = new Box3().setFromObject(preview_group)
+    if (!Number.isFinite(bounds.min.y)) return
+    preview_group.position.y += 0.05 - bounds.min.y
+    preview_group.updateWorldMatrix(true, true)
   }
 
   private bake_and_disable_model_gizmo (): void {

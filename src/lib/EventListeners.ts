@@ -236,13 +236,22 @@ export class EventListeners {
     this.bootstrap.ui.dom_rotate_model_x_button?.addEventListener('click', () => {
       ModelCleanupUtility.rotate_model_geometry(this.bootstrap.load_model_step.model_meshes(), 'x', rotation_step())
     })
+    this.bootstrap.ui.dom_rotate_model_x_negative_button?.addEventListener('click', () => {
+      ModelCleanupUtility.rotate_model_geometry(this.bootstrap.load_model_step.model_meshes(), 'x', -rotation_step())
+    })
 
     this.bootstrap.ui.dom_rotate_model_y_button?.addEventListener('click', () => {
       ModelCleanupUtility.rotate_model_geometry(this.bootstrap.load_model_step.model_meshes(), 'y', rotation_step())
     })
+    this.bootstrap.ui.dom_rotate_model_y_negative_button?.addEventListener('click', () => {
+      ModelCleanupUtility.rotate_model_geometry(this.bootstrap.load_model_step.model_meshes(), 'y', -rotation_step())
+    })
 
     this.bootstrap.ui.dom_rotate_model_z_button?.addEventListener('click', () => {
       ModelCleanupUtility.rotate_model_geometry(this.bootstrap.load_model_step.model_meshes(), 'z', rotation_step())
+    })
+    this.bootstrap.ui.dom_rotate_model_z_negative_button?.addEventListener('click', () => {
+      ModelCleanupUtility.rotate_model_geometry(this.bootstrap.load_model_step.model_meshes(), 'z', -rotation_step())
     })
 
     // show a breakdown of what was found in the imported file
@@ -288,6 +297,11 @@ export class EventListeners {
 
     this.bootstrap.ui.dom_auto_align_skeleton_button?.addEventListener('click', () => {
       this.bootstrap.edit_skeleton_step.align_skeleton_to_floor()
+      this.bootstrap.align_preview_skeleton_to_floor()
+    })
+
+    this.bootstrap.ui.dom_move_preview_skeleton_button?.addEventListener('click', () => {
+      this.bootstrap.enable_preview_skeleton_gizmo()
     })
 
     this.bootstrap.ui.dom_move_whole_skeleton_button?.addEventListener('click', () => {
